@@ -1,5 +1,5 @@
 import * as React from 'react'
-import * as FontIcon from 'react-icons/fa'
+// import * as FontIcon from 'react-icons/fa'
 import * as CSS from 'csstype'
 import { IconList } from '.'
 
@@ -18,13 +18,18 @@ const IconPickerItem: React.SFC<IconPickerItemProps> = ({
   onClick,
   containerStyles,
 }) => {
-  const iconDiv = !!icon ? React.createElement(FontIcon[icon]) : <div />
+  // const iconDiv = !!icon ? React.createElement(FontIcon[icon]) : <div />
   return (
     <div
       onClick={() => !!onClick && onClick(icon)}
       style={{ fontSize: size, color: color, padding: 2, ...containerStyles }}
     >
-      {iconDiv}
+      <i
+        className={`fa ${icon}`}
+        style={{ fontSize: size, color: color }}
+        aria-hidden="true"
+      />
+      {/* {iconDiv} */}
     </div>
   )
 }
